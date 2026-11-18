@@ -19,7 +19,7 @@ A reserved link per pack, such as `<site>/xchr92`, redirects to the URL `links.j
 
 Assistants read a page without running its scripts, and an image in a chat is loaded straight from its URL, so guides and images are built ahead of time rather than in the browser. The redirect adds a fresh `?v=` to the guide link on every scan so ChatGPT does not reuse a cached copy.
 
-Each `url` opens ChatGPT with a short, customer-style prompt: "Hey, I purchased <product>. Can you tell me more about it using this guide? <guide>".
+Each `url` opens ChatGPT with a short, customer-style prompt: "Hey, I purchased <product>. Can you tell me more about it using this guide, and keep using it for my follow-up questions? <guide>". The customer's own message stays in the chat on every turn, so it carries the request to keep using the guide; a fetched page may not. For the same reason the guide asks for each follow-up chip to end with the guide's link, so tapping a chip brings the guide back.
 
 Presentation guidance in a guide (tables, callouts, follow-up chips) is a request, not a control: ChatGPT treats text on web pages as information, and Intelligent UI chooses its own layout. Images from these links may not display, because ChatGPT does not always show images from addresses it does not recognise.
 
