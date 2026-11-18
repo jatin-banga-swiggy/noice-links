@@ -1,0 +1,16 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title></title>
+<script>
+  // Short-link redirect. GitHub Pages serves this file for any path it has no file for,
+  // so <site>/xchr92 lands here. links.json maps each code to its product; "url" is where it redirects.
+  (async () => {
+    // "/noice-links/xchr92" -> code "xchr92", links.json at "/noice-links/links.json".
+    const parts = location.pathname.split('/').filter(Boolean);
+    const code = decodeURIComponent(parts.pop() ?? '');
+    const base = `/${parts.map(part => `${part}/`).join('')}`;
+    const links = await (await fetch(`${base}links.json`, { cache: 'no-store' })).json();
+    if (Object.hasOwn(links, code)) location.replace(links[code].url);
+  })().catch(error => console.error('Noice link:', error));
+</script>
