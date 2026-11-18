@@ -9,7 +9,7 @@ A reserved link per pack, such as `<site>/xchr92`, redirects to the URL `links.j
 | `index.html` | Home page: a grid of every product in `links.json`, numbered One, Two, Three… in file order, with its image, QR code, short link and guide. |
 | `404.html` | The redirect. GitHub Pages serves it for any path without a file, so `/xchr92` lands here and its script redirects to that code's `url`. |
 | `links.json` | One entry per code: `name`, `image` (home page), `page` (guide) and `url` (where the code redirects). Edit it to change where a printed QR goes. |
-| `product/<slug>.txt` | Plain-text guides for assistants: four rules, which components to answer with (tables, number cards, callouts…), the two parts that must look the same every time (supplement facts table, pack card), then image links, the label, supplement facts and the questions to offer next. Generated; do not edit by hand. |
+| `product/<slug>.txt` | Plain-text guides for assistants: five rules, which components to answer with (tables, number cards, callouts…), the two parts that must look the same every time (supplement facts table, pack card), then image links, the label, supplement facts and the questions to offer next. Generated; do not edit by hand. |
 | `guide-extras.json` | Per product code: the pack card's two lines (`days`, `detail`) and the fallback questions for the follow-up chips (the guide asks for chips based on what the person just asked). |
 | `images/` | Product images used by the pages and the home page. Generated, except the logo. |
 | `imaginary-products.json` | Two made-up products (magnesium, omega-3) so the grid has more than one card. Their guides say they are imaginary. |
