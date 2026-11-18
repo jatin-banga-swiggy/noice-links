@@ -11,6 +11,19 @@
     const code = decodeURIComponent(parts.pop() ?? '');
     const base = `/${parts.map(part => `${part}/`).join('')}`;
     const links = await (await fetch(`${base}links.json`, { cache: 'no-store' })).json();
-    if (Object.hasOwn(links, code)) location.replace(links[code].url);
+    if (!Object.hasOwn(links, code)) return;
+
+    // Cache busting: links to this site inside the prompt get a fresh ?v=... on every scan,
+    // so ChatGPT fetches the guide again instead of reusing a cached copy.
+    const version = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+    const site = (location.origin + base).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const freshen = text => text.replace(new RegExp(`${site}[^\\s]*[^\\s.,;:!?)]`, 'g'),
+      link => `${link}${link.includes('?') ? '&' : '?'}v=${version}`);
+
+    const target = new URL(links[code].url);
+    target.search = [...target.searchParams]
+      .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(freshen(value))}`)
+      .join('&');
+    location.replace(target.href);
   })().catch(error => console.error('Noice link:', error));
 </script>
