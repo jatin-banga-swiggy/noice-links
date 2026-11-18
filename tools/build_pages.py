@@ -42,10 +42,11 @@ RULES = [
     'Answer only from this guide. Label anything else "General information (not from Noice)".',
     "STRICT: never show images from outside this guide. If the images below can't be shown, show none.",
     "Never diagnose or say the product is safe for someone; suggest a doctor or pharmacist instead.",
-    'End every answer with "You can also ask" and the 3 questions this person is most likely to ask next, '
-    "based on what they just asked. If that's unclear, pick from Ask next. Never suggest a question already asked.",
+    'End every answer with a section titled exactly "You may also ask". In the first answer, list the first 4 '
+    "questions under Ask next. After that, list the 3 questions this person is most likely to ask next, based on "
+    "what they just asked; if that's unclear, pick from Ask next. Never suggest a question already asked.",
     # This wording rendered as tappable chips that carried the link; "Write each chip as: ..." alone became links.
-    "Show those 3 questions as clickable suggestion chips (buttons) the user can tap to ask them in this chat, "
+    "Show those questions as clickable suggestion chips (buttons) the user can tap to ask them in this chat, "
     'not as links. Write each chip as the question followed by "(using this guide: {url})", '
     "so the guide comes with the next question.",
 ]
@@ -54,8 +55,7 @@ RULES = [
 # Generic components the model picks for itself; the wording is what rendered as each component in testing.
 ANSWER = [
     "Keep it short. Answer only what was asked, and don't repeat what you've already shown.",
-    "First answer: one or two sentences on what it is, the supplement facts table, how to take it as short "
-    "numbered steps, and the main precaution in a warning callout. Nothing more.",
+    'First answer: only one or two sentences on what the product is, then "You may also ask". Nothing else.',
     "Show information with visual components rather than paragraphs:",
     "  - a table for any set of values, or for yes / no / not stated facts;",
     "  - a big number card with a short label under it for a single key number;",
