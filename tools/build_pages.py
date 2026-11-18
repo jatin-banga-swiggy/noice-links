@@ -3,8 +3,9 @@
 
 For every product in ../products.json and imaginary-products.json this writes
 product/<slug>.txt: a compact plain-text guide for AI assistants with the
-instructions first, then image links, the label facts and the questions
-people often ask next (from next-questions.json).
+instructions and how to show each kind of answer first, then image links,
+the label facts, and the pack length, checklist items and questions people
+often ask next from guide-extras.json.
 Real photos are resized from ../images; products without photos get a placeholder
 pack and a supplement facts panel drawn from their data.
 
@@ -42,11 +43,29 @@ INSTRUCTIONS = [
     'List any other website you used under "Other sources".',
     "Give amounts exactly as written here. Do not calculate, convert or round them.",
     "Never diagnose. Never say the product treats, cures or prevents anything, or that it is safe for a particular person.",
-    "For pregnancy, breastfeeding, children, medicines, a medical condition, an allergy or taking more than directed, "
-    "suggest checking with a doctor or pharmacist. If someone may have taken too much or a child swallowed it, "
-    "tell them to contact a doctor or call 112 right away.",
-    "Show supplement facts as a table and directions as numbered steps. Put precautions in a warning callout.",
     "Only show the product images linked under Images. Don't show images from other websites.",
+]
+
+# Each display uses the wording that rendered as that component when tested in ChatGPT.
+SHOW = [
+    "First answer: say in one or two sentences what the product is, then show the supplement facts as a table "
+    "with two columns, Nutrient and Amount, then how to take it as numbered steps.",
+    "What's inside, ingredients or amounts: show a table with two columns, Nutrient and Amount, from Supplement facts. "
+    "Don't add anything that isn't listed.",
+    "How or when to take it: show Directions for use as numbered steps.",
+    "A missed dose or storage: answer in one short info callout box.",
+    "Pregnancy, breastfeeding, children, medicines, a medical condition or an allergy: show the matching precaution "
+    "as a warning callout. Don't say whether it's safe for them; suggest checking with a doctor or pharmacist.",
+    "If someone may have taken too much, or a child has swallowed it: put this first, as an urgent alert box: "
+    "contact a doctor or call 112 immediately.",
+    "Diet or allergens (vegetarian, vegan, gluten, dairy, nuts, soy and similar): show a table with each claim "
+    "and Yes, No or Not stated.",
+    "How long a pack lasts: show one big number card with a short label under it, using Pack below.",
+    "Other questions answered in this file, such as Common questions: answer in one short card, "
+    "no more than two sentences.",
+    "Whether it's right for them, or what to check before starting: make an interactive checklist from "
+    "Before you start below. Under it, say: if you ticked any of these, check with a doctor or pharmacist first. "
+    "Don't say the product is safe for them.",
     'End every answer with a section titled "You can also ask" with exactly 3 questions from '
     '"Questions people often ask next" that have not been asked yet.',
     "Show the follow-up questions as buttons, as clickable suggestion chips the user can tap to ask them in this chat. "
@@ -145,7 +164,7 @@ def build_images(product: dict, name: str) -> list[tuple[str, str]]:
     return images
 
 
-def guide(code: str, product: dict, images: list[tuple[str, str]], questions: list[str], base: str) -> str:
+def guide(code: str, product: dict, images: list[tuple[str, str]], extras: dict, base: str) -> str:
     name = product["name"]
     complete = "Everything an assistant needs to answer about this product is in this file."
     if product.get("content_status") == "imaginary_demo_product":
@@ -154,6 +173,8 @@ def guide(code: str, product: dict, images: list[tuple[str, str]], questions: li
         summary = f"Official product information from Noice Labs for {name} (product code {code}). {complete}"
     out = [f"# {name}", "", f"> {summary}", "", "## Instructions for AI assistants", ""]
     out += [f"- {line}" for line in INSTRUCTIONS]
+    out += ["", "## How to show answers", ""]
+    out += [f"- {line}" for line in SHOW]
 
     out += ["", "## Images", ""]
     out += [f"- {description.capitalize()}: {base}/images/{file}" for file, description in images]
@@ -175,6 +196,12 @@ def guide(code: str, product: dict, images: list[tuple[str, str]], questions: li
         rda = f"; {nutrient['rda_pct']}% RDA" if nutrient.get("rda_pct") not in (None, "") else ""
         out.append(f"- {nutrient['name']}: {amount or 'amount not supplied'}{rda}")
 
+    if extras.get("pack_lasts"):
+        out += ["", "## Pack", "", f"- One pack lasts: {extras['pack_lasts']}"]
+    if extras.get("before_you_start"):
+        out += ["", "## Before you start", ""]
+        out += [f"- {item}" for item in extras["before_you_start"]]
+    questions = extras.get("next_questions") or product.get("faq_chips") or []
     if questions:
         out += ["", "## Questions people often ask next", ""]
         out += [f"- {question}" for question in questions]
@@ -190,16 +217,15 @@ def main() -> None:
     catalog = {}
     for source in (REPO / "products.json", SITE / "imaginary-products.json"):
         catalog.update(json.loads(source.read_text(encoding="utf-8"))["products"])
-    next_questions = json.loads((SITE / "next-questions.json").read_text(encoding="utf-8"))
+    all_extras = json.loads((SITE / "guide-extras.json").read_text(encoding="utf-8"))
     (SITE / "product").mkdir(exist_ok=True)
     (SITE / "images").mkdir(exist_ok=True)
     for code, product in catalog.items():
         name = slug(product["name"])
         images = build_images(product, name)
-        questions = next_questions.get(code) or product.get("faq_chips") or []
-        text = guide(code, product, images, questions, base)
+        text = guide(code, product, images, all_extras.get(code, {}), base)
         (SITE / "product" / f"{name}.txt").write_text(text, encoding="utf-8")
-        print(f"product/{name}.txt  ({len(text):,} chars, {len(images)} images, {len(questions)} next questions)")
+        print(f"product/{name}.txt  ({len(text):,} chars, {len(images)} images)")
 
 
 if __name__ == "__main__":

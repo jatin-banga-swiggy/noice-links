@@ -1,0 +1,62 @@
+{
+  "8905127401199": {
+    "pack_lasts": "60 days (1 tablet a day; 60 tablets per pack)",
+    "before_you_start": [
+      "Are you pregnant or breastfeeding?",
+      "Are you taking any medication?",
+      "Do you already take a multivitamin or another B vitamin supplement?",
+      "Is this for a child?"
+    ],
+    "next_questions": [
+      "When should I take it?",
+      "What's inside each tablet?",
+      "What should I check before I start?",
+      "How long will one pack last?",
+      "Can I take it on an empty stomach?",
+      "Why is my urine bright yellow?",
+      "Can I take it with my multivitamin?",
+      "What if I miss a dose?",
+      "Is it vegetarian?"
+    ]
+  },
+  "DEMO-0002": {
+    "pack_lasts": "30 days (2 capsules a day; 60 capsules per pack)",
+    "before_you_start": [
+      "Are you pregnant or breastfeeding?",
+      "Are you taking any medication?",
+      "Do you have a kidney condition?",
+      "Is this for a child?"
+    ],
+    "next_questions": [
+      "When should I take it?",
+      "What's inside each serving?",
+      "What should I check before I start?",
+      "How long will one pack last?",
+      "Is it vegetarian?",
+      "Can I take it with medication?",
+      "What if I have a kidney condition?",
+      "Can I take more than 2 capsules?",
+      "How should I store it?"
+    ]
+  },
+  "DEMO-0003": {
+    "pack_lasts": "60 days (1 softgel a day; 60 softgels per pack)",
+    "before_you_start": [
+      "Are you pregnant or breastfeeding?",
+      "Do you take blood-thinning medicines or any other medication?",
+      "Are you allergic to fish?",
+      "Is this for a child?"
+    ],
+    "next_questions": [
+      "When should I take it?",
+      "How much EPA and DHA is in it?",
+      "What should I check before I start?",
+      "How long will one pack last?",
+      "Is it suitable for vegetarians?",
+      "Can I take it with blood thinners?",
+      "What if I'm allergic to fish?",
+      "Is it safe during pregnancy?",
+      "How should I store it?"
+    ]
+  }
+}

@@ -10,7 +10,7 @@ A reserved link per pack, such as `<site>/xchr92`, redirects to the URL `links.j
 | `404.html` | The redirect. GitHub Pages serves it for any path without a file, so `/xchr92` lands here and its script redirects to that code's `url`. |
 | `links.json` | One entry per code: `name`, `image` (home page), `page` (guide) and `url` (where the code redirects). Edit it to change where a printed QR goes. |
 | `product/<slug>.txt` | Plain-text guides for assistants: instructions first, then image links, the label, supplement facts and the questions people often ask next. Generated; do not edit by hand. |
-| `next-questions.json` | Per product code, the questions the guide offers as follow-up chips (three not yet asked, at the end of each answer). |
+| `guide-extras.json` | Per product code: how long a pack lasts (for the number card), the "Before you start" checklist items, and the questions the guide offers as follow-up chips. |
 | `images/` | Product images used by the pages and the home page. Generated, except the logo. |
 | `imaginary-products.json` | Two made-up products (magnesium, omega-3) so the grid has more than one card. Their guides say they are imaginary. |
 | `vendor/qrcode.js` | The [qrcode](https://github.com/soldair/node-qrcode) 1.5.4 library (MIT), bundled for the browser. |
