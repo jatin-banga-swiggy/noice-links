@@ -45,10 +45,10 @@ RULES = [
     'End every answer with a section titled exactly "You may also ask". In the first answer, list the first 4 '
     "questions under Ask next. After that, list the 3 questions this person is most likely to ask next, based on "
     "what they just asked; if that's unclear, pick from Ask next. Never suggest a question already asked.",
-    # This wording rendered as tappable chips that carried the link; "Write each chip as: ..." alone became links.
-    "Show those questions as clickable suggestion chips (buttons) the user can tap to ask them in this chat, "
-    'not as links. Write each chip as the question followed by "(using this guide: {url})", '
-    "so the guide comes with the next question.",
+    # Named as a component so the model uses it rather than a list; "not links" matters: without it they became links.
+    "Always show those questions with the follow-up button component: one button per question, which the user "
+    "taps to ask it in this chat. Never as links or a plain list. Write each button's text as the question "
+    'followed by "(using this guide: {url})", so the guide comes with the next question.',
 ]
 
 
