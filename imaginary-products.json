@@ -4,21 +4,54 @@
       "name": "Noice Magnesium Glycinate",
       "content_status": "imaginary_demo_product",
       "product_context": "PRODUCT OVERVIEW\nNoice Magnesium Glycinate is an imaginary product made up for this demo. It is described as a daily health supplement that provides magnesium bound to the amino acid glycine.\n\nFORMAT AND PACK\nCapsule, supplied in a bottle of 60 capsules. Serving size is 2 capsules. Category: Health Supplement. Not for medicinal use.\n\nDIETARY AND ALLERGEN INFORMATION\nVegetarian capsule shell. Gluten free.\n\nDIRECTIONS FOR USE\nTake 2 capsules daily after dinner, swallowed whole with water.\nDo not exceed the recommended daily usage of 2 capsules.\n\nSTORAGE\nStore in a cool, dry place below 30°C, away from direct sunlight.\nKeep the bottle tightly closed and out of reach of children.\n\nPRECAUTIONS\nPregnant or breastfeeding women, children, persons with a kidney condition and persons on medication should consult a doctor before use.\nNot for medicinal use. This product is not intended to diagnose, treat, cure or prevent any disease.\nIf more than the recommended amount has been taken, or a child has swallowed capsules, contact a doctor or call 112 immediately.\n\nNOT COVERED BY THIS BRIEF\nAnything not written above. This product and its label are imaginary.",
-      "serving_size": { "qty": 2, "unit": "capsules" },
+      "serving_size": {
+        "qty": 2,
+        "unit": "capsules"
+      },
       "servings_per_pack": 30,
       "nutrient_breakdown": [
-        { "name": "Magnesium (as magnesium glycinate)", "amount": 200, "unit": "mg", "rda_pct": null }
+        {
+          "name": "Magnesium (as magnesium glycinate)",
+          "amount": 200,
+          "unit": "mg",
+          "rda_pct": null
+        }
+      ],
+      "faq_chips": [
+        "When should I take it?",
+        "What's inside each serving?",
+        "Can I take it with medication?",
+        "How should I store it?"
       ]
     },
     "DEMO-0003": {
       "name": "Noice Omega-3 Fish Oil",
       "content_status": "imaginary_demo_product",
       "product_context": "PRODUCT OVERVIEW\nNoice Omega-3 Fish Oil is an imaginary product made up for this demo. It is described as a daily health supplement that provides the omega-3 fatty acids EPA and DHA from fish oil.\n\nFORMAT AND PACK\nSoftgel, supplied in a bottle of 60 softgels. Serving size is 1 softgel. Category: Health Supplement. Not for medicinal use.\n\nDIETARY AND ALLERGEN INFORMATION\nContains fish. The softgel shell contains gelatin. Not suitable for vegetarians.\n\nDIRECTIONS FOR USE\nTake 1 softgel daily with a meal, swallowed whole with water.\nDo not exceed the recommended daily usage of 1 softgel.\n\nSTORAGE\nStore in a cool, dry place below 25°C, away from direct sunlight.\nKeep the bottle tightly closed and out of reach of children.\n\nPRECAUTIONS\nPregnant or breastfeeding women, children, persons on blood-thinning medicines and persons on any other medication should consult a doctor before use.\nDo not use if allergic to fish.\nNot for medicinal use. This product is not intended to diagnose, treat, cure or prevent any disease.\nIf more than the recommended amount has been taken, or a child has swallowed softgels, contact a doctor or call 112 immediately.\n\nNOT COVERED BY THIS BRIEF\nAnything not written above. This product and its label are imaginary.",
-      "serving_size": { "qty": 1, "unit": "softgel" },
+      "serving_size": {
+        "qty": 1,
+        "unit": "softgel"
+      },
       "servings_per_pack": 60,
       "nutrient_breakdown": [
-        { "name": "EPA (eicosapentaenoic acid)", "amount": 180, "unit": "mg", "rda_pct": null },
-        { "name": "DHA (docosahexaenoic acid)", "amount": 120, "unit": "mg", "rda_pct": null }
+        {
+          "name": "EPA (eicosapentaenoic acid)",
+          "amount": 180,
+          "unit": "mg",
+          "rda_pct": null
+        },
+        {
+          "name": "DHA (docosahexaenoic acid)",
+          "amount": 120,
+          "unit": "mg",
+          "rda_pct": null
+        }
+      ],
+      "faq_chips": [
+        "When should I take it?",
+        "How much EPA and DHA is in it?",
+        "Is it suitable for vegetarians?",
+        "Can I take it with blood thinners?"
       ]
     }
   }

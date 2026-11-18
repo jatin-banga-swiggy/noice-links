@@ -18,11 +18,14 @@ class Handler(http.server.SimpleHTTPRequestHandler):
     extensions_map = {**http.server.SimpleHTTPRequestHandler.extensions_map, ".txt": "text/plain; charset=utf-8"}
 
     def send_head(self):
-        path = self.path.split("?", 1)[0]
+        path, _, query = self.path.partition("?")
         if self.base and not (path == self.base or path.startswith(self.base + "/")):
             return self.not_found()
-        self.path = self.path[len(self.base):] or "/"
-        target = Path(self.translate_path(self.path))
+        path = path[len(self.base):] or "/"
+        target = Path(self.translate_path(path))
+        if not target.exists() and Path(f"{target}.html").is_file():
+            path, target = f"{path}.html", Path(f"{target}.html")  # Pages serves /product/x from product/x.html
+        self.path = f"{path}?{query}" if query else path
         if target.is_dir() and not (target / "index.html").is_file():
             return self.not_found()  # GitHub Pages never lists directories
         if not target.exists():
