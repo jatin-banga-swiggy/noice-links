@@ -34,8 +34,7 @@ PHOTOS = [
 ]
 
 STATUS = {
-    "demo_draft_pending_noice_review": "Status: demo content, pending review by Noice Labs.",
-    "imaginary_demo_product": "Status: imaginary product made up for this demo. It is not a real Noice product.",
+    "imaginary_demo_product":"Status: imaginary product made up for this demo. It is not a real Noice product.",
 }
 
 PRESENTATION = [
