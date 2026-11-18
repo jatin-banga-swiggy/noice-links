@@ -18,6 +18,8 @@ A reserved link per pack, such as `<site>/xchr92`, redirects to the URL `links.j
 
 Assistants read a page's HTML without running its scripts, and an image in a chat is loaded straight from its URL, so pages and images are built ahead of time rather than in the browser.
 
-Presentation guidance on a page (carousel, callouts, follow-up buttons) is a request, not a control: ChatGPT treats text on web pages as information, and Intelligent UI chooses its own layout. The prompt in each `url` repeats the key requests, since the customer's own words carry more weight.
+Each `url` opens ChatGPT with a short, customer-style prompt: "Hey, I purchased <product>. Can you tell me more about it using this guide? <product page>".
+
+Presentation guidance on a page (carousel, callouts, follow-up buttons) is a request, not a control: ChatGPT treats text on web pages as information, and Intelligent UI chooses its own layout.
 
 The repository is public because GitHub Pages on a free account needs that; every file in it is also served on the site.
