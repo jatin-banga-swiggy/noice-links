@@ -50,7 +50,7 @@
       const qr = el('div', { className: 'qr', title: short });
       qr.innerHTML = await QRCode.toString(short, { type: 'svg', margin: 1, errorCorrectionLevel: 'M' });
       const links = el('div', { className: 'links' }, el('a', { href: code, textContent: short.replace(/^https?:\/\//, '') }));
-      if (item.page) links.append(el('a', { href: item.page, textContent: 'Product page' }));
+      if (item.page) links.append(el('a', { href: item.page, textContent: 'Guide' }));
       return el('article', { className: 'card' },
         el('div', { className: 'photo' },
           el('span', { className: 'badge', textContent: NUMBERS[index] ?? String(index + 1) }),

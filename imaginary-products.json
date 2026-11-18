@@ -16,12 +16,6 @@
           "unit": "mg",
           "rda_pct": null
         }
-      ],
-      "faq_chips": [
-        "When should I take it?",
-        "What's inside each serving?",
-        "Can I take it with medication?",
-        "How should I store it?"
       ]
     },
     "DEMO-0003": {
@@ -46,12 +40,6 @@
           "unit": "mg",
           "rda_pct": null
         }
-      ],
-      "faq_chips": [
-        "When should I take it?",
-        "How much EPA and DHA is in it?",
-        "Is it suitable for vegetarians?",
-        "Can I take it with blood thinners?"
       ]
     }
   }
