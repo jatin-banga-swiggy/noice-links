@@ -1,12 +1,9 @@
 {
   "8905127401199": {
-    "pack_lasts": "60 days (1 tablet a day; 60 tablets per pack)",
-    "before_you_start": [
-      "Are you pregnant or breastfeeding?",
-      "Are you taking any medication?",
-      "Do you already take a multivitamin or another B vitamin supplement?",
-      "Is this for a child?"
-    ],
+    "pack": {
+      "days": "60 days",
+      "detail": "1 tablet a day · 60 tablets per pack"
+    },
     "next_questions": [
       "When should I take it?",
       "What's inside each tablet?",
@@ -20,13 +17,10 @@
     ]
   },
   "DEMO-0002": {
-    "pack_lasts": "30 days (2 capsules a day; 60 capsules per pack)",
-    "before_you_start": [
-      "Are you pregnant or breastfeeding?",
-      "Are you taking any medication?",
-      "Do you have a kidney condition?",
-      "Is this for a child?"
-    ],
+    "pack": {
+      "days": "30 days",
+      "detail": "2 capsules a day · 60 capsules per pack"
+    },
     "next_questions": [
       "When should I take it?",
       "What's inside each serving?",
@@ -40,13 +34,10 @@
     ]
   },
   "DEMO-0003": {
-    "pack_lasts": "60 days (1 softgel a day; 60 softgels per pack)",
-    "before_you_start": [
-      "Are you pregnant or breastfeeding?",
-      "Do you take blood-thinning medicines or any other medication?",
-      "Are you allergic to fish?",
-      "Is this for a child?"
-    ],
+    "pack": {
+      "days": "60 days",
+      "detail": "1 softgel a day · 60 softgels per pack"
+    },
     "next_questions": [
       "When should I take it?",
       "How much EPA and DHA is in it?",
